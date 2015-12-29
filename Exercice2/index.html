@@ -1,37 +1,37 @@
-!DOCTYPE html 
-	
-<!--
-Ceci se passe de commentaire.
--->
+<!DOCTYPE html>
 <html>
-<head>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <meta http-equiv="Content-Language" content="fr" />
- 
- <title>
- 
- </title>
-</head>
-<body>
-
-<div>
-    <input id="prenom" placeholder="Prénom" />
-    <input id="nom" placeholder="Nom" />
-    <input id="numero" placeholder="Numéro" />
-    <button id="ajouter">Ajouter</button>
-</div>
-
-<ul id="liste"></ul>
-
-<div>
-    <input id="recherche" placeholder="Recherche" />
-    <button id="rechercher">Rechercher</button>
-</div>
-
-<ul id="resultats"></ul>
-<script src="tableau.js"></script>
-
-
-</body>
-
+    <meta charset="utf-8">
+    <body>
+        <input type="texte" id="texte">
+        <button onclick="ajouterElement()" id="ajouter">Ajouter</button>
+        <ul id="liste"></ul>
+        <button onclick="annuler()" id="annuler">Annuler</button>
+        <script>
+            var $texte = document.getElementById("texte");
+            var $liste = document.getElementById("liste");
+            
+            var tableau = ["valé","Davi","Mous"];
+            
+            function afficherListe() {
+                var elem = "";
+                for (var i = 0; i < tableau.length; i++) {
+                    elem += "<li>" + tableau[i] + "</li>";
+                }
+                $liste.innerHTML = elem;
+            }
+            
+            function ajouterElement() {
+                tableau.push($texte.value);
+                afficherListe();
+                $texte.value = '';
+            }
+    
+            function annuler() {
+                tableau.pop();
+                afficherListe();
+            }
+            
+            afficherListe();
+        </script>
+    </body>
 </html>
